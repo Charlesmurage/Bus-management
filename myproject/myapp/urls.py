@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name="signup"),
     url(r'^signin/$', views.signin, name="signin"),
     url(r'success/$', views.success, name="success"),
+    url(r'access/token$', views.getAccessToken, name='get_mpesa_access_token'),
     url('signout', views.signout, name="signout"),
 
 ]

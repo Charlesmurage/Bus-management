@@ -23,6 +23,12 @@ def home(request):
     else:
         return render(request, 'myapp/signin.html')
 
+def pay(request):
+    if request.user.is_authenticated:
+        return render(request, 'myapp/pay.html')
+    else:
+        return render(request, 'myapp/signin.html')
+
 
 @login_required(login_url='signin')
 def findbus(request):
@@ -185,9 +191,9 @@ def lipa_na_mpesa_online(request):
         "Timestamp": LipanaMpesaPpassword.lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": 1,
-        "PartyA": 254722178460,  
+        "PartyA": request.POST['number'],  
         "PartyB": LipanaMpesaPpassword.Business_short_code,
-        "PhoneNumber": 254722178460,  
+        "PhoneNumber": request.POST['number'],  
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "charles",
         "TransactionDesc": "Testing stk push"

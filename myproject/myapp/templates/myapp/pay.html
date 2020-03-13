@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'lipa_na_mpesa' %}" method="post">
+        <h3>make payment</h3>
+        {% csrf_token %}
+
+        </div>
+        <div class="col=auto">
+            <label for="example-email-input" class="col-2 col-form-label">Phone number</label>
+            <div class="col-5">
+                <input name='number' class="form-control" type="number">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-primary float-left">Pay</button>
+        </div>
+</body>
+</html>
